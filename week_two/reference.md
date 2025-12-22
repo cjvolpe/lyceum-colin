@@ -31,13 +31,18 @@ To initialize the game correctly (for on startup and on restart), we will:
 1. Set all state variables to the initial value
 2. Shuffle the 16 colors
 3. Create the tile objects to store in the ```tiles``` array:
-    a. Retrieve the tile reference by:
-        1. Query the DOM to get the element
-        2. Set the initial CSS state (i.e. ```hidden```)
-        3. Set the true underlying color (via ```--tile-color```)
-        4. Add event listener to handle user click interactions
-    b. Set defaults for ```flipped``` and ```matched```
-    c. Set ```color``` to the color stored in the shuffled color array at this tile index
+    * Retrieve the tile reference by:
+
+        a. Query the DOM to get the element
+
+        b. Set the initial CSS state (i.e. ```hidden```)
+     
+        c. Set the true underlying color (via ```--tile-color```)
+
+        d. Add event listener to handle user click interactions
+   * Set defaults for ```flipped``` and ```matched```
+
+   * Set ```color``` to the color stored in the shuffled color array at this tile index
 
 For now, because this is just the game setup, the tile click event handler will just log to the console which tile has been clicked.
 
