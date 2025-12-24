@@ -9,15 +9,15 @@ import type { Tile } from "../../lib/types";
 
 interface GameTileProps {
     tile: Tile
-    onClick: () => void;
 }
 
-export default function GameTile({ tile, onClick }: GameTileProps) {
+// TODO: Make this component interactive -- i.e. user clicks will actually do something
+export default function GameTile({ tile }: GameTileProps) {
     const color = (tile.revealed) ? tile.color : "card-back";
     const matched = (tile.matched) ? "matched" : "";
 
     return (
-        <button type="button" className={`tile ${color} ${matched}`} onClick={onClick}>
+        <button type="button" className={`tile ${color} ${matched}`} >
         </button>
     );
 }

@@ -10,13 +10,12 @@ import GameTile from "../tile/game-tile";
 
 interface GameBoardProps {
     tiles: Tile[];
-    onTileClick: (tile: Tile) => void;
 }
 
-export default function GameBoard({ tiles, onTileClick }: GameBoardProps) {
+export default function GameBoard({ tiles }: GameBoardProps) {
     return (
         <div className="game-board">
-            {tiles.map((tile) => <GameTile key={tile.index} tile={tile} onClick={() => onTileClick(tile)} />)}
+            {tiles.map((tile) => <GameTile key={tile.index} tile={tile} />)}
         </div>
     );
 }

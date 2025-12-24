@@ -29,13 +29,10 @@ export function hideTiles(tiles: Tile[], indices: number[]): Tile[] {
     return changed;
 }
 
+/* TODO: write this logic function tiles and which indices to set match
+ * Arguments: the previous tiles array, and which indices to match
+ * Return: the new array where the tiles have been matched (do not modify in place)
+ */
 export function matchTiles(tiles: Tile[], indices: number[]): Tile[] {
-    const changed = tiles.map((tile) => {
-        if (indices.includes(tile.index)) {
-            return { ...tile, matched: true };
-        }
-        return tile;
-    });
-
-    return changed;
+    throw new Error("TODO");
 }
