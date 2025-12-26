@@ -1,14 +1,14 @@
 // builtin
 
 // external
-import { createClient, SupabaseClient, type User } from '@supabase/supabase-js'
-import type { Book } from '../../globals/types.js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 // internal
+import type { Book, User } from '../../globals/types.js';
+
 
 const SUPABASE_URL = process.env.SUPABASE_URL
 const SUPABASE_KEY = process.env.SUPABASE_KEY
-
 
 export class Database {
     private client: SupabaseClient;
@@ -19,13 +19,32 @@ export class Database {
 
         this.client = createClient(SUPABASE_URL, SUPABASE_KEY);
     }
-
     public async getCurrentLoans(userId: number): Promise<Book[]> {
-        throw new Error("TODO");
+        const { data, error } = await this.client
+            .from('loans')
+            .select('user_id, ongoing, book:books(*)')
+            .eq('user_id', userId)
+            .eq('ongoing', true);
+
+        console.log(data);
+
+        if (error) throw error;
+        if (!data) return [];
+
+        return data.map((row) => (row.book as unknown as Book));
     }
 
     public async getAllBorrowedUsers(bookId: number): Promise<User[]> {
-        throw new Error("TODO");
-    }
+        const { data, error } = await this.client
+            .from('loans')
+            .select('book_id, user:users(*)')
+            .eq('book_id', bookId);
 
+        console.log(data);
+
+        if (error) throw error;
+        if (!data) return [];
+
+        return data.map((row) => (row.user as unknown as User));
+    }
 }
