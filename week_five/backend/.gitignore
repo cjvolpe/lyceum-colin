@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+
+# Compiled files
+dist/
+
+# Environment files
+.env
+.env.*
