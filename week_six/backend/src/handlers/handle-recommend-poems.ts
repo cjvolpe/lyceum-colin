@@ -8,7 +8,7 @@ import { database } from "../modules/database/index.js";
 import { relevance } from "../modules/relevancy/index.js";
 
 
-interface PoemRecommendationInput {
+export interface PoemRecommendationInput {
     type: PoemType;
     searchQuery: string;
     minLines?: number;

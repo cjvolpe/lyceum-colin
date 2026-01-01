@@ -9,10 +9,24 @@ import { database } from "../../modules/database/index.js";
 import { PoemType } from "../../globals/types.js";
 
 
-describe("handleRecommendPoem", () => {
+describe("poem recommendation handler tests", () => {
     beforeEach(() => {
-        if (database.clear) database.clear();
+        database.clear();
     });
+
+    it("doesn't break if database is empty", async () => {
+        const input = {
+            type: PoemType.Elegy,
+            searchQuery: "b",
+            minLines: 2,
+            maxLines: 4,
+            maxPoems: 1,
+        };
+
+        const result = await handleRecommendPoem(input);
+
+        expect(result.success).toBe(true);
+    })
 
     it("returns poems filtered by minLines and maxLines, ranked, and limited", async () => {
         database.addPoem({ title: "A", author: "A", lines: ["a", "b"], type: PoemType.Elegy });
@@ -31,7 +45,7 @@ describe("handleRecommendPoem", () => {
         expect(result.success).toBe(true);
         if (result.success) {
             expect(result.data.length).toBe(1);
-            expect(["A", "B"]).toContain(result.data[0].title); // Accept either if both match ranking
+            expect(["A", "B"]).toContain(result.data[0].title);
         }
     });
 

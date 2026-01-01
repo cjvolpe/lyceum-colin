@@ -8,6 +8,9 @@ import type { RelevanceRanking } from "../relevance.js";
 // internal
 
 
+const FAKE_ENV = process.env.FAKE_ENV;
+if (!FAKE_ENV) throw new Error("Environment variable FAKE_ENV is not set!");
+
 export class TestRanking implements RelevanceRanking {
     async rankByRelevance(poems: Poem[], _query: string): Promise<Process<Poem[]>> {
         const shuffled = shuffle(poems);
