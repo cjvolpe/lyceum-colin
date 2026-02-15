@@ -1,0 +1,44 @@
+.container{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:aliceblue;
+    height:75vh;
+    width: 35vw;
+    border-radius: 50px;
+    border: 1px solid black;
+
+}
+
+.game-board{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    width:80%;
+    height:85%;
+    margin: auto;
+    padding: 1%;
+
+
+}
+.game-tile{
+    background: gray;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin:2%;
+
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+button{
+    padding: 1% 1.5% 1% 1.5%;
+    margin: 5%;
+}
