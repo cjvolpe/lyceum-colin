@@ -1,14 +1,20 @@
+*{
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .container{
    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background:aliceblue;
-    height:75vh;
-    width: 35vw;
-    border-radius: 50px;
+    border-radius: 24px;
     border: 1px solid black;
-
+    padding: 20px 30px;
+    gap:10px;
 }
 
 .game-board{
@@ -17,10 +23,7 @@
     background: white;
     border: 1px solid black;
     border-radius: 25px;
-    width:80%;
-    height:85%;
-    margin: auto;
-    padding: 1%;
+    padding: 5px;
 
 
 }
@@ -28,8 +31,9 @@
     background: gray;
     border: 1px solid black;
     border-radius: 25px;
-    margin:2%;
-
+    margin:1px;
+    width: 50px;
+    aspect-ratio: 1 / 1;
 }
 
 body{
@@ -39,6 +43,10 @@ body{
     padding: 5%;
 }
 button{
-    padding: 1% 1.5% 1% 1.5%;
+    padding: 8px;
     margin: 5%;
+    width:100%;
+    border-radius: 24px;
+    border: 1px solid black;
+    background-color: white;
 }
