@@ -43,6 +43,12 @@ function click(idx) {
             matchedTiles.push(allTiles[lastTile]);
             lastTile = -1;
             matched++;
+
+            if (matched === colors.length / 2) {
+                setTimeout(() => {
+                    alert("You Win! Click restart to play again!")
+                }, 1);
+            }
         } else {
             let temp = lastTile;
             lastTile = -1;
@@ -53,9 +59,5 @@ function click(idx) {
         }
     } else {
         lastTile = idx;
-    }
-
-    if (matched === colors.length / 2) {
-        alert("You Win! Click restart to play again!")
     }
 }
